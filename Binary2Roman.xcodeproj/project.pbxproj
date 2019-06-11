@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1C3000122B07213000B0FC9 /* BRConversor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3000022B07213000B0FC9 /* BRConversor.swift */; };
 		C1C3FFD122B033A5000B0FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3FFD022B033A5000B0FC9 /* AppDelegate.swift */; };
 		C1C3FFD322B033A5000B0FC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3FFD222B033A5000B0FC9 /* ViewController.swift */; };
 		C1C3FFD622B033A5000B0FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1C3FFD422B033A5000B0FC9 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C1C3000022B07213000B0FC9 /* BRConversor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRConversor.swift; sourceTree = "<group>"; };
 		C1C3FFCD22B033A5000B0FC9 /* Binary2Roman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Binary2Roman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C3FFD022B033A5000B0FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1C3FFD222B033A5000B0FC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,8 +99,9 @@
 		C1C3FFCF22B033A5000B0FC9 /* Binary2Roman */ = {
 			isa = PBXGroup;
 			children = (
-				C1C3FFD022B033A5000B0FC9 /* AppDelegate.swift */,
+				C1C3000022B07213000B0FC9 /* BRConversor.swift */,
 				C1C3FFD222B033A5000B0FC9 /* ViewController.swift */,
+				C1C3FFD022B033A5000B0FC9 /* AppDelegate.swift */,
 				C1C3FFD422B033A5000B0FC9 /* Main.storyboard */,
 				C1C3FFD722B033A8000B0FC9 /* Assets.xcassets */,
 				C1C3FFD922B033A8000B0FC9 /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1C3000122B07213000B0FC9 /* BRConversor.swift in Sources */,
 				C1C3FFD322B033A5000B0FC9 /* ViewController.swift in Sources */,
 				C1C3FFD122B033A5000B0FC9 /* AppDelegate.swift in Sources */,
 			);
