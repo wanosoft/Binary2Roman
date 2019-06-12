@@ -19,7 +19,7 @@ class BRConversor {
             resultLable.text = binary2Decimal(inputText: inputTextField)
             return true
         } else if validateNumber(inputText: inputTextField, regularEx: romanRegularEx) {
-            resultLable.text = roman2Decimal(inputText: inputTextField)
+            resultLable.text = roman2Binary(inputText: inputTextField)
             return true
         } else {
             return false
@@ -44,11 +44,21 @@ class BRConversor {
     }
     
     func binary2Decimal(inputText: String) -> String {
-        let number = Int(inputText, radix: 2)
-        return String(number!)
+        var number = Int(strtoul(inputText, nil, 2))
+        let romans = ["M":1000,"CM":900,"D":500,"CD":400,"C":100,"XC":90,"L":50,"XL":40,"X":10,"IX":9,"V":5,"IV":4,"I":1]
+        if number <= 0 || number >= 4000 { return "4000 MAX SUPPORTED" }
+        var romanNumeral:String = ""
+        
+        for romanNumber in romans {
+            while (number==romanNumber.value || number >= romanNumber.value){
+                number -= romanNumber.value
+                romanNumeral += romanNumber.key
+            }
+        }
+        return romanNumeral
     }
     
-    func roman2Decimal(inputText: String) -> String {
+    func roman2Binary(inputText: String) -> String {
         let romans = [" ":0, "I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000]
         
         var previousValue = 0
@@ -69,7 +79,7 @@ class BRConversor {
                 }
             }
         }
-        return String(summ)
+        return String(summ, radix: 2)
     }
 }
 
