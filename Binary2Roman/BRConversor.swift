@@ -16,10 +16,10 @@ class BRConversor {
     func convert(inputTextField: String, resultLable: UILabel) -> Bool {
         //TODO: Conversor logic
         if validateNumber(inputText: inputTextField, regularEx: binaryRegularEx){
-            resultLable.text = inputTextField
+            resultLable.text = binary2Decimal(inputText: inputTextField)
             return true
         } else if validateNumber(inputText: inputTextField, regularEx: romanRegularEx) {
-            resultLable.text = inputTextField
+            resultLable.text = roman2Decimal(inputText: inputTextField)
             return true
         } else {
             return false
@@ -42,4 +42,34 @@ class BRConversor {
         }
         return true
     }
+    
+    func binary2Decimal(inputText: String) -> String {
+        let number = Int(inputText, radix: 2)
+        return String(number!)
+    }
+    
+    func roman2Decimal(inputText: String) -> String {
+        let romans = [" ":0, "I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000]
+        
+        var previousValue = 0
+        var summ = 0
+        var letter = " "
+        
+        for inputNumber in inputText {
+            letter = String(inputNumber)
+            for romanNumber in romans {
+                if letter == romanNumber.key {
+                    summ =  summ + romanNumber.value
+                    if previousValue < romanNumber.value {
+                        summ = summ - previousValue*2
+                        previousValue = romanNumber.value
+                    } else {
+                        previousValue = romanNumber.value
+                    }
+                }
+            }
+        }
+        return String(summ)
+    }
 }
+
