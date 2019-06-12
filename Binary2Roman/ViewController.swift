@@ -56,7 +56,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
         if (inputTextField.text!.isEmpty){
             invalidInput()
         } else {
-            resultLabel.text = BRConversor.init().convert(input: inputTextField.text!)
+            BRConversor.init().convert(
+                inputTextField: inputTextField.text!,
+                resultLable: resultLabel) ? print("Ok") : invalidInput()
         }
     }
     
