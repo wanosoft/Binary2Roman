@@ -9,12 +9,16 @@ import UIKit
 import Foundation
 
 class BRConversor {
+    
+    let binaryRegularEx = "\\b[01]+\\b"
+    let romanRegularEx = "^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$"
+    
     func convert(inputTextField: String, resultLable: UILabel) -> Bool {
         //TODO: Conversor logic
-        if isBinary(inputText: inputTextField){
+        if validateNumber(inputText: inputTextField, regularEx: binaryRegularEx){
             resultLable.text = inputTextField
             return true
-        } else if isRoman(inputText: inputTextField) {
+        } else if validateNumber(inputText: inputTextField, regularEx: romanRegularEx) {
             resultLable.text = inputTextField
             return true
         } else {
@@ -22,30 +26,9 @@ class BRConversor {
         }
     }
     
-    func isBinary(inputText: String) -> Bool {
-        var returnValue =  true
-        let binaryRegularEx = "\\b[01]+\\b"
-        
+    func validateNumber(inputText: String, regularEx: String) -> Bool {
         do {
-            let regex = try NSRegularExpression(pattern: binaryRegularEx)
-            let nsString = inputText as NSString
-            let results = regex.matches(in: inputText, range: NSRange(location: 0, length: nsString.length))
-            
-            if (results.count == 0) {
-                returnValue = false
-            }
-            
-        } catch let error as NSError {
-            print("Invalid regex: \(error.localizedDescription)")
-            returnValue = false
-        }
-        return returnValue
-    }
-    
-    func isRoman(inputText: String) -> Bool {
-        let romanRegularEx = "^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$"
-        do {
-            let regex = try NSRegularExpression(pattern: romanRegularEx)
+            let regex = try NSRegularExpression(pattern: regularEx)
             let nsString = inputText as NSString
             let results = regex.matches(in: inputText, range: NSRange(location: 0, length: nsString.length))
             
@@ -59,5 +42,4 @@ class BRConversor {
         }
         return true
     }
-    
 }
